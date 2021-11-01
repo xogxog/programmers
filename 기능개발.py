@@ -8,15 +8,17 @@ def solution(progresses, speeds):
             progresses[i] += speeds[i]
             cnt += 1
         work.append(cnt)
-
+    print(work)
     release = 0
     cnt2 = 1
     for i in range(1, len(work)) :
-        if work[i] <= work[release] : # 그 전의 작업과 동일 or 일찍 작업이 끝났다면
-            cnt2 +=1                  # 함께 release 하기위해 + 1
+        if work[i] <= work[release] :  # 그 전의 작업과 동일 or 일찍 작업이 끝났다면
+            cnt2 +=1                   # 함께 release 하기위해 + 1
         else :
             release = i                 # release할 기준 재설정
             answer.append(cnt2)         # 배포
             cnt2 = 1                    # 배포갯수 초기화
     answer.append(cnt2)                 #
     return answer
+
+print(solution([93, 30, 55],[1, 30, 5]))
