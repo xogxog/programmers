@@ -1,5 +1,5 @@
 def solution(numbers):
-    numbers = [[numbers[i],(str(numbers[i])*3)[0:4]] for i in range(len(numbers))]
+    numbers = [[numbers[i],(str(numbers[i])*4)[0:4]] for i in range(len(numbers))]
     # print(numbers)
 
     numbers.sort(key=lambda x : x[1], reverse=True)
