@@ -6,7 +6,7 @@ def solution(answers):
 
     # 맞을때 마다, 카운트올리기
     cnt=[0,0,0]
-    
+
     for i in range(len(answers)):
         if answers[i] == person1[i]:
             cnt[0] += 1
