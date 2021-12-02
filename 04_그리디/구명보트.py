@@ -1,5 +1,5 @@
 def solution(people, limit):
-    people.sort(reverse=True)
+    people.sort(reverse=True) # 몸무게 역순으로 sort
 
     cnt = 0
     idx = len(people) - 1  # 리스트 끝을 가리킬 인덱스변수
