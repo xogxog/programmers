@@ -1,5 +1,5 @@
 # 어거지로 풀긴 품..
-
+# 플로이드 와샬 알고리즘 이용해서 풀어보기
 def solution(n, results):
     answer = 0
     adj_arr = [[] for _ in range(n+1)]
@@ -24,7 +24,9 @@ def solution(n, results):
                 for j in range(len(adj_arr[i])) : # 내가 겨뤄본 사람
 
                     person, win_or_lose = adj_arr[i][j][0], adj_arr[i][j][1] # 내가 겨룬 사람, 승/패 전적
+
                     # print(f'나 : {i} ,내가 겨룬 사람 :{person}, 전적 : {win_or_lose}')
+
                     for p, w_o_l in adj_arr[person]: # 겨뤄본 사람이 겨룬 사람과 전적
                         if win_or_lose == 'win' : # 내가 이겼다면 p한테 진 사람한테도 이긴 것을 기록
                             if p != i and p not in for_check_list[i] and w_o_l=='win' : # 중복되지 않게 하기위한 조건 + 내가 이긴사람한테 진사람이라면
@@ -36,22 +38,13 @@ def solution(n, results):
                                 adj_arr[i].append((p, 'lose'))
                                 for_check_list[i].append(p)
         count += 1
-        # print(adj_arr)
+    # print(adj_arr)
+    # print(for_check_list)
     for i in range(len(for_check_list)) :
         if len(for_check_list[i]) == n-1 :
             answer += 1
     # print(for_check_list)
 
-
-    # for i in range(len(adj_arr)):
-    #     if len(adj_arr[i]) == n-1 :
-    #         answer += 1
-    #         count = 0
-    #         for j in range(len(adj_arr[i])) :
-    #             if adj_arr[i][j][1] == "lose" :
-    #                 count +=1
-    #         ranking[count+1] = i # 몇등인지 기록
-    # print(ranking)
     return answer
 
 
